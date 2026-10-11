@@ -77,8 +77,13 @@ class GlobalSearchResultDialogTest {
         when(preferences.getSearchPreferences()).thenReturn(searchPreferences);
 
         PreviewPreferences previewPreferences = preferences.getPreviewPreferences();
-        org.mockito.Mockito.doReturn(new org.jabref.logic.preview.TextBasedPreviewLayout("", mock(org.jabref.logic.layout.LayoutFormatterPreferences.class), mock(org.jabref.logic.journals.JournalAbbreviationRepository.class)))
-                .when(previewPreferences).getSelectedPreviewLayout();
+        org.mockito.Mockito.doReturn(
+                new org.jabref.logic.preview.TextBasedPreviewLayout(
+                        "",
+                        mock(org.jabref.logic.layout.LayoutFormatterPreferences.class),
+                        mock(org.jabref.logic.journals.JournalAbbreviationRepository.class)
+                )
+        ).when(previewPreferences).getSelectedPreviewLayout();
 
         keyBindingRepository = mock(KeyBindingRepository.class);
         when(preferences.getKeyBindingRepository()).thenReturn(keyBindingRepository);
